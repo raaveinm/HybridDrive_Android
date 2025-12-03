@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">HybridDrive_Android</string>
+    <string name="app_name">Hybrid Drive</string>
+    <string name="auth_welcome">Sign in to Access Drive</string>
+    <string name="register">First time there?</string>
+    <string name="login">I\'m already in!</string>
+    <string name="login_txt">login</string>
+    <string name="password_txt">password</string>
+    <string name="confirm_password_txt">confirm password</string>
+    <string name="register_btn">Register</string>
+    <string name="login_btn">Login</string>
+    <string name="confirm_logout">Are you sure you want to logout?</string>
+    <string name="confirm_logout_header">Confirm logout</string>
+    <string name="yes_txt">yes</string>
+    <string name="no_txt">no</string>
 </resources>
