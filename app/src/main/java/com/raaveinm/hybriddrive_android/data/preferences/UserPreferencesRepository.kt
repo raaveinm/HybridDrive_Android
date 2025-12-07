@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 
 private const val DATA_STORE_NAME = "user_prefs"
+private const val TAG = "userPreferencesDataStore"
 val Context.userPreferencesDataStore: DataStore<Preferences> by preferencesDataStore(
     name = DATA_STORE_NAME
 )
@@ -24,24 +25,21 @@ class UserPreferencesRepository(private val dataStore: DataStore<Preferences>) {
 
     suspend fun savePreferences (
         isLogged: Boolean,
-        userName: String?,
-        userPassword: String?
     ) {
         dataStore.edit { preferences ->
-
             preferences[IS_LOGGED] = isLogged
-
-            Log.v("UserPreferencesRepository", "Saving preferences with data" +
-                    "isLogged: $isLogged")
+            Log.v(TAG, "Saving preferences with dataisLogged: $isLogged")
         }
     }
 
     suspend fun logout() {
-        savePreferences(false, null, null)
+        Log.i(TAG, "Logging out")
+        savePreferences(false)
     }
 
     suspend fun isLogged(): Boolean {
         val preferences = dataStore.data.first()
+        Log.v(TAG, "dataisLogged: ${preferences[IS_LOGGED]}")
         return preferences[IS_LOGGED] ?: false
     }
 
